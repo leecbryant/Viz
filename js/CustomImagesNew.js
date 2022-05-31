@@ -10,6 +10,9 @@ function RollingImagesUpgrader() {
             "children": [
                 {
                     "name": "ASY",
+                },
+                {
+                    "name": "ASY2",
                 }
               ]
           },
@@ -20,26 +23,9 @@ function RollingImagesUpgrader() {
             "children": [
                 {
                     "name": "ASY",
-                }
-              ]
-          },
-          { 
-            "name": "Instance 3",
-            dead: false,
-            pending: false,
-            "children": [
+                },
                 {
-                    "name": "ASY",
-                }
-              ]
-          },
-          { 
-            "name": "Instance 4",
-            dead: false,
-            pending: false,
-            "children": [
-                {
-                    "name": "ASY",
+                    "name": "ASY2",
                 }
               ]
           }
@@ -178,7 +164,7 @@ function RollingImagesUpgrader() {
       // Transition back to the parent element position
       linkUpdate
           .attr("style", function (d) {
-            let stroke = `stroke-width: ${getRandomWidth(d.data.dead || d.data.pending)}px;`;
+            let stroke = `stroke-width: ${getRandomWidth(d.data.dead)}px;`;
             if(d.data.dead) {
               return stroke + "stroke: #b54343;";
             } 
@@ -228,20 +214,29 @@ function RollingImagesUpgrader() {
   let j = 0;
   function killServer() {
       setTimeout(function () {
-          rollingImagesTree.children[j === 0 ? rollingImagesTree.children.length - 1 : j - 1].pending = false;
-          rollingImagesTree.children[j].pending = true;
-          rollingImagesTree.children[j === 0 ? rollingImagesTree.children.length - 1 : j - 1].children[0].dead = false;
-          rollingImagesTree.children[j].children[0].dead = true;
-          update(root)
-          j++;
-          if(j === rollingImagesTree.children.length) {
-              setTimeout(function () {
-                  j = 0;
-                  reset();
-              }, 5000);
-          } else {
-              killServer();
-          }
+            rollingImagesTree.children[j === 0 ? rollingImagesTree.children.length - 1 : j - 1].pending = false;
+            rollingImagesTree.children[j].pending = true;
+            rollingImagesTree.children[j === 0 ? rollingImagesTree.children.length - 1 : j - 1].children[0].dead = false;
+            rollingImagesTree.children[j === 0 ? rollingImagesTree.children.length - 1 : j - 1].children[1].dead = false;
+            rollingImagesTree.children[j].children[0].dead = true;
+            update(root)
+
+            setTimeout(function () {
+                rollingImagesTree.children[j].children[0].dead = false;
+                rollingImagesTree.children[j].children[1].dead = true;
+
+                update(root);
+
+                j++;
+                if(j === rollingImagesTree.children.length) {
+                    setTimeout(function () {
+                        j = 0;
+                        reset();
+                    }, 5000);
+                } else {
+                    killServer();
+                }
+            }, 5000);
       }, 5000);
   }
 
@@ -249,6 +244,7 @@ function RollingImagesUpgrader() {
       for(let i = 0; i < rollingImagesTree.children.length; i++) {
           rollingImagesTree.children[i].pending = false;
           rollingImagesTree.children[i].children[0].dead = false;
+          rollingImagesTree.children[i].children[1].dead = false;
       }
       update(root);
       setTimeout(function () {
