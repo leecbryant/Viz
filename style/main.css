@@ -1,0 +1,111 @@
+/* Browser Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* D3 Styling */
+.RollingUpgradeNode, .RollingImagesUpgradesNode {
+    cursor: pointer;
+}
+
+.RollingUpgradeNode circle, .RollingImagesUpgradesNode circle {
+    fill: #fff;
+    stroke: #4BB543;
+    stroke-width: 3px;
+}
+
+.DeadNode circle {
+    fill: #fff;
+    stroke: #b54343;
+    stroke-width: 3px;
+}
+
+text {
+    font: 13px sans-serif;
+}
+
+.link {
+    fill: none;
+    stroke: #4BB543;
+}
+
+div {
+    width: 100%;
+    height: 50%;
+    float: left;
+}
+
+#RollingUpgrades {
+    background: #DDD;
+}
+
+#RollingUpgrades:before {
+    content: attr(data-title);
+    background: #7a7a7a;
+    position: absolute;
+    padding: 10px;
+    color: #fff;
+    left: 0;
+    top: 0;
+}
+  
+
+#SideBySide {
+    background: #AAA;
+}
+
+#SideBySide:before {
+    content: attr(data-title);
+    background: rgb(216, 216, 216);
+    position: absolute;
+    padding: 10px;
+    color: #000;
+    left: 0;
+    top: 355;
+}
+  
+
+#CustomImages {
+    background: #777;
+}
+
+#CustomImages:before {
+    content: attr(data-title);
+    background: rgb(216, 216, 216);
+    position: absolute;
+    padding: 10px;
+    color: #000;
+    left: 0;
+    top: calc(355 * 2);
+}
+
+#RollingImagesUpgrades {
+    background: #666;
+}
+
+#RollingImagesUpgrades:before {
+    content: attr(data-title);
+    background: rgb(216, 216, 216);
+    position: absolute;
+    padding: 10px;
+    color: #000;
+    left: 0;
+    top: calc(355 * 3);
+}
