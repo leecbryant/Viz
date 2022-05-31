@@ -68,7 +68,7 @@ div {
   
 
 #SideBySide {
-    background: #AAA;
+    background: rgb(207, 207, 207);
 }
 
 #SideBySide:before {
@@ -97,7 +97,7 @@ div {
 }
 
 #RollingImagesUpgrades {
-    background: #AAA;
+    background: rgb(207, 207, 207);
 }
 
 #RollingImagesUpgrades:before {
