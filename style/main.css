@@ -58,7 +58,7 @@ div {
 
 #RollingUpgrades:before {
     content: attr(data-title);
-    background: #7a7a7a;
+    background: rgba(0, 0, 0, 0.5);
     position: absolute;
     padding: 10px;
     color: #fff;
@@ -73,39 +73,39 @@ div {
 
 #SideBySide:before {
     content: attr(data-title);
-    background: rgb(216, 216, 216);
+    background: rgba(0, 0, 0, 0.5);
     position: absolute;
     padding: 10px;
-    color: #000;
+    color: #fff;
     left: 0;
     top: 355;
 }
   
 
 #CustomImages {
-    background: #777;
+    background: #DDD;
 }
 
 #CustomImages:before {
     content: attr(data-title);
-    background: rgb(216, 216, 216);
+    background: rgba(0, 0, 0, 0.5);
     position: absolute;
     padding: 10px;
-    color: #000;
+    color: #fff;
     left: 0;
     top: calc(355 * 2);
 }
 
 #RollingImagesUpgrades {
-    background: #666;
+    background: #AAA;
 }
 
 #RollingImagesUpgrades:before {
     content: attr(data-title);
-    background: rgb(216, 216, 216);
+    background: rgba(0, 0, 0, 0.5);
     position: absolute;
     padding: 10px;
-    color: #000;
+    color: #fff;
     left: 0;
     top: calc(355 * 3);
 }
